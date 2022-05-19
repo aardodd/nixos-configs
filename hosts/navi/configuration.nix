@@ -2,7 +2,7 @@
 
 {
   # Hostname
-  networking.hostname = "navi"
+  networking.hostName = "navi";
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -36,16 +36,16 @@
     enableGhostscriptFonts = true;
     fontconfig.cache32Bit = true;
 
-    fonts = with pkgs; {
+    fonts = with pkgs; [
       terminus_font
       source-code-pro
-    };
+    ];
   };
 
   services.urxvtd.enable = true;
 
   # Extra packages
-  environment.systemPackages = with pkgs; {
+  environment.systemPackages = with pkgs; [
     discord
     feh
     firefox
@@ -56,5 +56,5 @@
     ranger
     rxvt_unicode
     scrot
-  };
+  ];
 }
