@@ -10,7 +10,7 @@ with lib;
 
     nix.gc.automatic = true;
     nix.gc.options = "--delete-older-than 30d";
-    nix.optimize.automatic = true;
+    nix.optimise.automatic = true;
 
     users.mutableUsers = true;
 
