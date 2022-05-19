@@ -55,11 +55,11 @@ with lib;
       uid = 1000;
       description = "Aaron Dodd <aarondodd@protonmail.com>";
       isNormalUser = true;
-      extraGroups = { "docker" "wheel" };
+      extraGroups = [ "docker" "wheel" ];
       group = "users";
       initialPassword = "deadbread";
       shell = "/run/current-system/sw/bin/zsh";
-    }
+    };
 
     # Packages
     programs.gnupg.agent.enable = true;
