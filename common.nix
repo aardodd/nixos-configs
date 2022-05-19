@@ -25,7 +25,7 @@ with lib;
     services.timesyncd.enable = true;
     time.timeZone = "Europe/London";
 
-    console.keymap = "uk";
+    console.keyMap = "uk";
     services.xserver.layout = "gb";
 
     # Services
@@ -51,7 +51,7 @@ with lib;
 
     # User accounts
     programs.zsh.enable = true;
-    users.extrausers.aaron = {
+    users.extraUsers.aaron = {
       uid = 1000;
       description = "Aaron Dodd <aarondodd@protonmail.com>";
       isNormalUser = true;
@@ -64,7 +64,7 @@ with lib;
     # Packages
     programs.gnupg.agent.enable = true;
     nixpkgs.config.allowUnfree = true;
-    environment.systemPackages = with pkgs; {
+    environment.systemPackages = with pkgs; [
       aspell
       aspellDicts.en
       bind
@@ -102,6 +102,6 @@ with lib;
       which
       whois
       (if config.services.xserver.enable then emacs else emacs-nox)
-    };
+    ];
   };
 }
