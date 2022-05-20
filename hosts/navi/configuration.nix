@@ -27,7 +27,7 @@
     enableCtrlAltBackspace = true;
     displayManager.autoLogin.enable = true;
     displayManager.autoLogin.user = "aaron";
-    windowManager.bspwm.enable = true;
+    windowManager.xmonad.enable = true;
   };
 
   # Fonts
