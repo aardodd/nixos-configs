@@ -27,7 +27,7 @@
     enableCtrlAltBackspace = true;
     displayManager.autoLogin.enable = true;
     displayManager.autoLogin.user = "aaron";
-    windowManager.herbstluftwm.enable = true;
+    windowManager.bspwm.enable = true;
   };
 
   # Fonts
