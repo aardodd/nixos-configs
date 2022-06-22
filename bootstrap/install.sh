@@ -29,6 +29,7 @@ fi
   if [ ! -f "./modules/hosts/${NIX_SYSTEM_NAME}/${NIX_INSTALL_NAME}/hardware-configuration.nix" ]; then
     nixos-generate-config --root /mnt --dir "./modules/hosts/${NIX_SYSTEM_NAME}/${NIX_INSTALL_NAME}/"
     git add "./modules/hosts/${NIX_SYSTEM_NAME}/${NIX_INSTALL_NAME}/hardware-configuration.nix"
+    git commit -m "Add hardware-configuration for ${NIX_INSTALL_NAME}"
   fi
 
   nix-shell \
