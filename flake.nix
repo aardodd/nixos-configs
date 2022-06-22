@@ -38,14 +38,14 @@
     lib = import ./lib;
   in
   flake-utils-plus.lib.mkFlake rec {
-    inherit self inputs lib home-manager;
+    inherit self inputs lib;
 
     hostDefaults.modules = [
       ./modules/configuration.nix
     ];
 
     hosts = lib.mkHosts {
-      inherit self home-manager;
+      inherit self;
       hostsPath = ./modules/hosts;
     };
 
