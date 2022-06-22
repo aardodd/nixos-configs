@@ -48,13 +48,5 @@
       inherit self;
       hostsPath = ./modules/hosts;
     };
-
-    outputsBuilder = channels: {
-      packages =
-        let
-          inherit (channels.nixpkgs.stdenv.hostPlatform) system;
-        in
-        packages { inherit lib channels; };
-      };
   };
 }

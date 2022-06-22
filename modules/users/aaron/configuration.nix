@@ -8,5 +8,6 @@
   } // lib.optionalAttrs pkgs.stdenv.isLinux {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
+    initialPassword = "deadbread";
   };
 }
