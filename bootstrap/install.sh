@@ -26,6 +26,11 @@ fi
 
 {
   echo "Building NixOS installation..."
+
+  if [ -f "./modules/hosts/**/${NIX_INSTALL_NAME}/hardware-configuration.nix" ]; then
+    nixos-generate-config --dir "./modules/hosts/**/${NIX_INSTALL_NAME}/"
+  fi
+
   nix-shell \
     -p nixFlakes \
     -p git \
