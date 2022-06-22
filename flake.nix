@@ -7,14 +7,16 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
 
-    darwin.url = "github:lnl7/nix-darwin";
-    darwin.inputs.nixpkgs.follows = "nixpkgs";
+    darwin = {
+      url = "github:lnl7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     flake-utils.url = "github:numtide/flake-utils";
     flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
 
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager/release-22.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -33,18 +35,17 @@
   }:
   let
     inherit (nixpkgs.lib) recursiveUpdate;
-
     lib = import ./lib;
   in
   flake-utils-plus.lib.mkFlake rec {
-    inherit self inputs lib;
+    inherit self inputs lib home-manager;
 
     hostDefaults.modules = [
       ./modules/configuration.nix
     ];
 
     hosts = lib.mkHosts {
-      inherit self;
+      inherit self home-manager;
       hostsPath = ./modules/hosts;
     };
 
