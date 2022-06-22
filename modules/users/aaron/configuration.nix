@@ -1,6 +1,6 @@
 { lib, pkgs, ... }:
 {
-  users.users.aaron {
+  users.users.aaron = {
     description = "Aaron Dodd";
     shell = pkgs.fish;
   } // lib.optionalAttrs pkgs.stdenv.isDarwin {
