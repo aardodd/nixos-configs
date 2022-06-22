@@ -1,8 +1,8 @@
-#!/bin/usr/env bash
+#!/bin/sh
 
 set -eo pipefail
 
-source "${dirname "$0"}/variables.sh"
+source "./bootstrap/variables.sh"
 
 if ! findmnt /mnt > /dev/null; then
   echo "Creating partitions on /dev/${NIX_INSTALL_BLOCK_DEVICE}..."
@@ -13,6 +13,7 @@ if ! findmnt /mnt > /dev/null; then
   parted "/dev/${NIX_INSTALL_BLOCK_DEVICE}" -- set 3 esp on
   
   echo "Creating filesystems on /dev/${NIX_INSTALL_BLOCK_DEVICE}..."
+  mkfs.ext4 -L nixos "/dev/${NIX_INSTALL_BLOCK_DEVICE}1"
   mkswap -L swap "/dev/${NIX_INSTALL_BLOCK_DEVICE}2"
   mkfs.fat -F 32 -n boot "/dev/${NIX_INSTALL_BLOCK_DEVICE}3"
 
@@ -24,16 +25,14 @@ if ! findmnt /mnt > /dev/null; then
 fi
 
 {
-    cd "$(dirname "$0")/.."
+  echo "Building NixOS installation..."
+  nix-shell \
+    -p nixFlakes \
+    -p git \
+    --run "nixos-install --impure --no-root-password --flake .#${NIX_INSTALL_NAME}"
 
-    echo "Building NixOS installation..."
-    nix-shell \
-        -p nixFlakes \
-        -p git \
-        --run "nixos-install --impure --no-root-password --flake .#${NIX_INSTALL_NAME}"
-
-    echo "Copying installation files to user /home/${NIX_SYSTEM_USER}/nixos..."
-    cp -av . "/mnt/home/${NIX_SYSTEM_USER}/nixos"
+  echo "Copying installation files to user /home/${NIX_SYSTEM_USER}/nixos..."
+  cp -av . "/mnt/home/${NIX_SYSTEM_USER}/nixos"
 }
 
 echo

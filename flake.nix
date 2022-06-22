@@ -7,7 +7,11 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
 
+    darwin.url = "github:lnl7/nix-darwin";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
+
     flake-utils.url = "github:numtide/flake-utils";
+    flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -21,22 +25,35 @@
     nixpkgs-unstable,
     nixos-hardware,
     nixos-wsl,
+    darwin,
     flake-utils,
+    flake-utils-plus,
     home-manager,
     ...
   }:
   let
-    # variables
-    inherit (lib.my) mapModules mapModulesRec mapHosts mapUsers;
-    inherit (flake-utils.lib) system;
-    inherit (home-manager.lib) homeManagerConfiguration;
-    inherit (nixpkgs.lib) nixosSystem;
-  
-    lib = nixpkgs.lib.extend
-      (self: super: { my = import ./lib { inherit pkgs inputs; lib = self; }; });
-  in {
-    nixosModules = mapModules ./modules {};
-    nixosConfigurations = mapHosts ./hosts {};
-    homeConfigurations = mapUsers ./users {};
+    inherit (nixpkgs.lib) recursiveUpdate;
+
+    lib = import ./lib;
+  in
+  flake-utils-plus.lib.mkFlake rec {
+    inherit self inputs lib;
+
+    hostDefaults.modules = [
+      ./modules/configuration.nix
+    ];
+
+    hosts = lib.mkHosts {
+      inherit self;
+      hostsPath = ./modules/hosts;
+    };
+
+    outputsBuilder = channels: {
+      packages =
+        let
+          inherit (channels.nixpkgs.stdenv.hostPlatform) system;
+        in
+        packages { inherit lib channels; };
+      };
   };
 }
