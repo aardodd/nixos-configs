@@ -26,9 +26,8 @@ fi
 
 {
   echo "Building NixOS installation..."
-
-  if [ -f "./modules/hosts/**/${NIX_INSTALL_NAME}/hardware-configuration.nix" ]; then
-    nixos-generate-config --dir "./modules/hosts/**/${NIX_INSTALL_NAME}/"
+  if [ -f "./modules/hosts/${NIX_SYSTEM_NAME}/${NIX_INSTALL_NAME}/hardware-configuration.nix" ]; then
+    nixos-generate-config --dir "./modules/hosts/${NIX_SYSTEM_NAME}/${NIX_INSTALL_NAME}/"
   fi
 
   nix-shell \
