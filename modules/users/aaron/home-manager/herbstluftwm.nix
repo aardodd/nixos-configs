@@ -3,6 +3,8 @@
   xsession.windowManager.herbstluftwm = {
     enable = true;
     extraConfig = ''
+      systemctl --user restart polybar
+
       # tile border
       active_colour="#9fbc00"
       normal_colour="#454545"
