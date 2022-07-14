@@ -4,7 +4,7 @@ let
   mkHost = { self, hostsPath, system }: name:
     let
       inherit (builtins) concatMap elemAt filter map mapAttrs pathExists split;
-      inherit (self.inputs) darwin home-manager sops-nix;
+      inherit (self.inputs) darwin home-manager;
 
       optionalAttrs = pred: attrs: if pred then attrs else { };
 
@@ -41,7 +41,7 @@ let
       inherit name;
       value = {
         inherit system;
-        modules = configs ++ modulesConfigs ++ [ sops-nix.nixosModules.sops ];
+        modules = configs ++ modulesConfigs;
         specialArgs = aarch64ExtraPkgs // {
           flake = self;
           hostPath = fullHostPath;

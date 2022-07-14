@@ -35,3 +35,14 @@ work-around for that.
 
  6. Alternatively, steps 3-5 can be automated using `./bootstrap/install.sh`.
  7. Reboot into the new system using `reboot`.
+
+### TL;DR
+
+```
+sudo -i
+nix-shell -p nixFlakes -p git
+chmod +x ./bootstrap/partition.sh
+chmod +x ./bootstrap/install.sh
+./bootstrap/partition.sh
+./bootstrap/install.sh
+```
