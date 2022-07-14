@@ -76,6 +76,32 @@
       Mod4-Tab       = "cycle_all +1";
       Mod4-Shift-Tab = "cycle_all -1";
     };
+    settings = {
+      focus_follows_mouse = 1;
+      tree_style = "╾│ ├└╼─┐";
+
+      # frame backgrounds
+      frame_bg_transparent = 1;
+
+      # frame borders
+      frame_border_active_color = "#222222";
+      frame_border_normal_color = "#101010";
+
+      # padding
+      frame_gap = 4;
+      window_gap = 0;
+      frame_padding = 0;
+
+      smart_window_surroundings = 0;
+      smart_frame_surroundings = 1;
+      always_show_frame = 0;
+    };
+    rules = [
+      "focus=off"
+      "windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on"
+      "windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on"
+      "windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off"
+    ];
     tags = [
         "1" "2" "3" "4" "5" "6" "7" "8" "9" "0"
     ];
