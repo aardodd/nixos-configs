@@ -14,6 +14,7 @@
 
         modules-left = "ewmh";
         modules-center = "title";
+        modules-right = "date";
       };
 
       "module/ewmh" = {
@@ -42,6 +43,13 @@
         type = "internal/xwindow";
         format = "<label>";
         label = "%title%";
+      };
+
+      "module/date" = {
+        type = "internal/date";
+
+        date = "%Y-%m-%d%";
+        time = "%H:%M:%S";
       };
     };
   };
