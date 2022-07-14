@@ -41,6 +41,8 @@ work-around for that.
 ```
 sudo -i
 nix-shell -p nixFlakes -p git
+git clone https://github.com/aardodd/nixos-configs
+cd ./nixos-configs
 chmod +x ./bootstrap/partition.sh
 chmod +x ./bootstrap/install.sh
 ./bootstrap/partition.sh
