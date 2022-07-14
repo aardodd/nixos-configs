@@ -24,7 +24,7 @@
 
       font = {
         name = "Monaco";
-        size = 14;
+        size = 12;
       };
     };
     zsh.enable = true;

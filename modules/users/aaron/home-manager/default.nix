@@ -1,7 +1,8 @@
 { pkgs, ... }:
 {
   imports = [
-    ./terminal.nix  
+    ./polybar.nix
+    ./terminal.nix 
   ];
 
   home.packages = with pkgs; [
