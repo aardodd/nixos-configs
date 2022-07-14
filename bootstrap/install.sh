@@ -9,7 +9,6 @@ cp -r . /mnt/etc/nixos
 cd /mnt/etc/nixos
 
 echo "Building NixOS installation..."
-nix-shell -p nixFlakes -p git
 if [ ! -f "./modules/hosts/${NIX_SYSTEM_NAME}/${NIX_HOST_NAME}/hardware-configuration.nix" ]; then
   nixos-generate-config --root /mnt --dir ./modules/hosts/${NIX_SYSTEM_NAME}/${NIX_HOST_NAME}
   git add "./modules/hosts/${NIX_SYSTEM_NAME}/${NIX_HOST_NAME}/hardware-configuration.nix"
