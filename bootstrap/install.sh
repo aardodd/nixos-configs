@@ -4,42 +4,18 @@ set -eo pipefail
 
 source "./bootstrap/variables.sh"
 
-if ! findmnt /mnt > /dev/null; then
-  echo "Creating partitions on /dev/${NIX_INSTALL_BLOCK_DEVICE}..."
-  parted "/dev/${NIX_INSTALL_BLOCK_DEVICE}" -- mklabel gpt
-  parted "/dev/${NIX_INSTALL_BLOCK_DEVICE}" -- mkpart primary ext4 512MiB -${NIX_INSTALL_SWAP_SIZE}
-  parted "/dev/${NIX_INSTALL_BLOCK_DEVICE}" -- mkpart primary linux-swap -${NIX_INSTALL_SWAP_SIZE} 100%
-  parted "/dev/${NIX_INSTALL_BLOCK_DEVICE}" -- mkpart ESP fat32 0% 512MiB
-  parted "/dev/${NIX_INSTALL_BLOCK_DEVICE}" -- set 3 esp on
+mkdir -p /mnt/etc/nixos
+cp -r . /mnt/etc/nixos
+cd /mnt/etc/nixos
 
-  echo "Creating filesystems on /dev/${NIX_INSTALL_BLOCK_DEVICE}..."
-  mkfs.ext4 -L nixos "/dev/${NIX_INSTALL_BLOCK_DEVICE}1"
-  mkswap -L swap "/dev/${NIX_INSTALL_BLOCK_DEVICE}2"
-  mkfs.fat -F 32 -n EFI "/dev/${NIX_INSTALL_BLOCK_DEVICE}3"
-
-  echo "Mounting partitions under mount and enabling swap..."
-  mount /dev/disk/by-label/nixos /mnt
-  mkdir /mnt/boot
-  mount /dev/disk/by-label/EFI /mnt/boot
-  swapon /dev/disk/by-label/swap
+echo "Building NixOS installation..."
+nix-shell -p nixFlakes -p git
+if [ ! -f "./modules/hosts/${NIX_SYSTEM_NAME}/${NIX_HOST_NAME}/hardware-configuration.nix" ]; then
+  nixos-generate-config --root /mnt --dir ./modules/hosts/${NIX_SYSTEM_NAME}/${NIX_HOST_NAME}
+  git add "./modules/hosts/${NIX_SYSTEM_NAME}/${NIX_HOST_NAME}/hardware-configuration.nix"
 fi
 
-{
-  echo "Building NixOS installation..."
-  if [ ! -f "./modules/hosts/${NIX_SYSTEM_NAME}/${NIX_INSTALL_NAME}/hardware-configuration.nix" ]; then
-    nixos-generate-config --root /mnt --dir "./modules/hosts/${NIX_SYSTEM_NAME}/${NIX_INSTALL_NAME}/"
-    git add "./modules/hosts/${NIX_SYSTEM_NAME}/${NIX_INSTALL_NAME}/hardware-configuration.nix"
-    git commit -m "Add hardware-configuration for ${NIX_INSTALL_NAME}"
-  fi
-
-  nix-shell \
-    -p nixFlakes \
-    -p git \
-    --run "nixos-install --impure --no-root-password --flake .#${NIX_INSTALL_NAME}"
-
-  echo "Copying installation files to user /home/${NIX_SYSTEM_USER}/nixos..."
-  cp -av . "/mnt/home/${NIX_SYSTEM_USER}/nixos"
-}
+nixos-install --impure --no-root-password --flake .#${NIX_HOST_NAME}
 
 echo
 echo "Installation complete!"
