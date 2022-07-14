@@ -127,7 +127,7 @@
       "windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off"
     ];
     tags = [
-        "1" "2" "3" "4" "5" "6" "7" "8" "9" "0"
+        "2" "3" "4" "5" "6" "7" "8" "9" "0"
     ];
   };
 }
