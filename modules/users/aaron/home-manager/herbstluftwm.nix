@@ -3,6 +3,30 @@
   xsession.windowManager.herbstluftwm = {
     enable = true;
     extraConfig = ''
+      # tile border
+      active_colour="#9fbc00"
+      normal_colour="#454545"
+      urgent_colour="orange"
+
+      # tiling
+      hc set_attr theme.tiling.active.border_width 2
+      hc set_attr theme.tiling.active.color        "$active_colour"
+
+      hc set_attr theme.tiling.normal.border_width 2
+      hc set_attr theme.tiling.normal.color        "$normal_colour"
+
+      hc set_attr theme.tiling.urgent.border_width 2
+      hc set_attr theme.tiling.urgent.color        "$urgent_colour"
+
+      ### Floating window borders
+      hc set_attr theme.floating.active.border_width 7
+      hc set_attr theme.floating.active.color        "$active_colour"
+
+      hc set_attr theme.floating.normal.border_width 1
+      hc set_attr theme.floating.normal.color        "$normal_colour"
+
+      hc set_attr theme.floating.urgent.border_width 3
+      hc set_attr theme.floating.urgent.color        "$urgent_colour"
     '';
     keybinds = {
       # master controls
