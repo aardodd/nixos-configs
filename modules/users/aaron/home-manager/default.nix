@@ -1,12 +1,11 @@
 { pkgs, ... }:
-
-let
-  inherit (pkgs) neovim ripgrep;
-in
 {
-  home.packages = [
-    neovim
-    ripgrep
+  imports = [
+    ./terminal.nix  
+  ]
+
+  home.packages = with pkgs; [
+    firefox
   ];
 
   home.sessionVariables = {
@@ -14,5 +13,9 @@ in
     VISUAL = "${neovim}/bin/nvim";
   };
 
-  programs.fish.enable = true;
+  programs = {
+
+  };
+
+  programs.zsh.enable = true;
 }

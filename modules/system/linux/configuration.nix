@@ -12,6 +12,6 @@
     wheelNeedsPassword = false;
   };
 
-  users.defaultUserShell = pkgs.fish;
+  users.defaultUserShell = pkgs.zsh;
   users.mutableUsers = false;
 }
