@@ -18,14 +18,8 @@
       userName = "Aaron Dodd";
       userEmail = "me@aaronrdodd.com";
     };
-    kitty = {
+    urxvt = {
       enable = true;
-      theme = "Tokyo Night";
-
-      font = {
-        name = "Monaco";
-        size = 12;
-      };
     };
     zsh.enable = true;
   };
