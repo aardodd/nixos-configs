@@ -18,7 +18,7 @@
       userName = "Aaron Dodd";
       userEmail = "me@aaronrdodd.com";
     };
-    urxvt = {
+    alacritty = {
       enable = true;
     };
     zsh.enable = true;
