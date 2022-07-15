@@ -4,5 +4,5 @@
     enable = true;
   };
 
-  xdg.configFile."awesome/rc.lua".source = "../dotfiles/awesome/rc.lua";
+  xdg.configFile."awesome/rc.lua".source = ../dotfiles/awesome/rc.lua;
 }
