@@ -1,8 +1,6 @@
 { pkgs, ... }:
 {
   imports = [
-    ./awesomewm.nix
-    ./polybar.nix
     ./terminal.nix 
   ];
 
