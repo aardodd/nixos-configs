@@ -2,6 +2,7 @@
 {
   imports = [
     ./awesomewm.nix
+    ./dunst.nix
     ./terminal.nix 
   ];
 
