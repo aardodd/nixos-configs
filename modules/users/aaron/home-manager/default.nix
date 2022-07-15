@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ./awesomewm.nix
     ./terminal.nix 
   ];
 
