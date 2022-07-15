@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ./herbstluftwm.nix
+    ./awesomewm.nix
     ./polybar.nix
     ./terminal.nix 
   ];
