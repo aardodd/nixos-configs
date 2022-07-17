@@ -46,6 +46,7 @@
     channelsConfig.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
       "discord"
       "spotify"
+      "spotify-unwrapped"
     ];
 
     hostDefaults.modules = [
