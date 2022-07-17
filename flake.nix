@@ -43,11 +43,7 @@
   flake-utils-plus.lib.mkFlake rec {
     inherit self inputs lib;
 
-    channelsConfig.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
-      "discord"
-      "spotify"
-      "spotify-unwrapped"
-    ];
+    channelsConfig.allowUnfree = true;
 
     hostDefaults.modules = [
       ./modules/configuration.nix

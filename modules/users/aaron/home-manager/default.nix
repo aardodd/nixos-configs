@@ -9,6 +9,7 @@
 
   home.packages = with pkgs; [
     chromium
+    firefox
     discord
     feh
     gimp
