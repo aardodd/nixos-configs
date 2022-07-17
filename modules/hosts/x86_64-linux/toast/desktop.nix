@@ -2,7 +2,7 @@
 {
   services.xserver = {
     enable = true;
-    displayManager.lightdm.enable = true;
-    windowManager.herbstluftwm.enable = true;
+    displayManager.sddm.enable = true;
+    desktopManager.plasma5.enable = true;
   };
 }
