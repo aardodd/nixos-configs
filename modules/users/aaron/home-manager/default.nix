@@ -1,13 +1,21 @@
 { pkgs, ... }:
 {
   imports = [
-    ./awesomewm.nix
     ./dunst.nix
+    ./herbstluftwm.nix
+    ./polybar.nix
     ./terminal.nix 
   ];
 
   home.packages = with pkgs; [
-    firefox
-    flameshot
+    chromium
+    discord
+    feh
+    gimp
+    keepassxc
+    mpd
+    mpv
+    ncmpcpp
+    spotify
   ];
 }
