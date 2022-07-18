@@ -2,8 +2,7 @@
 {
   imports = [
     ./dunst.nix
-    ./herbstluftwm.nix
-    ./polybar.nix
+    ./awesomewm.nix
     ./terminal.nix 
   ];
 
@@ -12,12 +11,9 @@
     firefox
     discord
     feh
-    gimp
-    gmrun
     keepassxc
     mpd
     mpv
     ncmpcpp
-    spotify
   ];
 }
