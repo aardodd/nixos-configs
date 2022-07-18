@@ -7,6 +7,10 @@
     ripgrep
   ];
 
+  imports = [
+    ./alacritty.nix
+  ];
+
   home.sessionVariables = {
     EDITOR = "${pkgs.neovim}/bin/nvim";
     VISUAL = "${pkgs.neovim}/bin/nvim";
@@ -17,9 +21,6 @@
       enable = true;
       userName = "Aaron Dodd";
       userEmail = "me@aaronrdodd.com";
-    };
-    alacritty = {
-      enable = true;
     };
     zsh.enable = true;
   };

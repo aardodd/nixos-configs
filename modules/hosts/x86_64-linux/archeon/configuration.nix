@@ -61,6 +61,17 @@
     #media-session.enable = true;
   };
 
+  # Enable fonts
+  fonts = {
+    fontDir.enable = true;
+    enableGhostscriptFonts = true;
+    fontconfig.cache32Bit = true;
+
+    fonts = with pkgs; [
+      (nerdfonts.override { fonts = [ "RobotoMono" "JetBrainsMono" ]; })
+    ];
+  };
+
   services.xserver.libinput.enable = true;
 
   system.stateVersion = "22.05"; # Did you read the comment?

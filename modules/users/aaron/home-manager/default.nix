@@ -3,7 +3,7 @@
   imports = [
     ./dunst.nix
     ./awesomewm.nix
-    ./terminal.nix 
+    ./terminal 
   ];
 
   home.packages = with pkgs; [
