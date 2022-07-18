@@ -13,6 +13,7 @@
     discord
     feh
     gimp
+    gmrun
     keepassxc
     mpd
     mpv

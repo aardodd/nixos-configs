@@ -38,19 +38,20 @@
       
       # spawn programs
       Mod4-Return = "spawn alacritty";
+      Mod4-x = "gmrun";
 
       # basic movement
       ## focusing clients
-      Mod4-h = "focus left";
-      Mod4-j = "focus down";
-      Mod4-k = "focus up";
-      Mod4-l = "focus right";
+      Mod4-Left = "focus left";
+      Mod4-Down = "focus down";
+      Mod4-Up = "focus up";
+      Mod4-Right = "focus right";
 
       ## moving clients
-      Mod4-Shift-h = "shift left";
-      Mod4-Shift-j = "shift down";
-      Mod4-Shift-k = "shift up";
-      Mod4-Shift-l = "shift right";
+      Mod4-Shift-Left = "shift left";
+      Mod4-Shift-Down = "shift down";
+      Mod4-Shift-Up = "shift up";
+      Mod4-Shift-Right = "shift right";
 
       # splitting frames
       Mod4-u             = "split bottom 0.5";
@@ -58,10 +59,10 @@
       Mod4-Control-space = "split explode";
       
       # resizing frames
-      Mod4-Control-h = "resize left 0.05";
-      Mod4-Control-j = "resize down 0.05";
-      Mod4-Control-k = "resize up 0.05";
-      Mod4-Control-l = "resize right 0.05";
+      Mod4-Control-Left = "resize left 0.05";
+      Mod4-Control-Down = "resize down 0.05";
+      Mod4-Control-Up = "resize up 0.05";
+      Mod4-Control-Right = "resize right 0.05";
 
       # tags
       ## direct use tag switch
