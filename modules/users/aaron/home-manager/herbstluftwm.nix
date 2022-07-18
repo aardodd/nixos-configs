@@ -37,7 +37,7 @@
       Mod4-Shift-c = "close";
       
       # spawn programs
-      Mod4-Return = "spawn kitty";
+      Mod4-Return = "spawn alacritty";
 
       # basic movement
       ## focusing clients
