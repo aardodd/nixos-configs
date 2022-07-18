@@ -38,7 +38,7 @@
       
       # spawn programs
       Mod4-Return = "spawn alacritty";
-      Mod4-x = "gmrun";
+      Mod4-x = "spawn gmrun";
 
       # basic movement
       ## focusing clients
