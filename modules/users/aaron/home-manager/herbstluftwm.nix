@@ -130,6 +130,7 @@
       "windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on"
       "windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on"
       "windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off"
+      "class=Gmrun pseudotile=on focus=on"
     ];
     tags = [
         "1" "2" "3" "4" "5" "6" "7" "8" "9" "0"
