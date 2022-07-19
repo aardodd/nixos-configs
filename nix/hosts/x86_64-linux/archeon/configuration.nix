@@ -29,8 +29,8 @@
   services.xserver.enable = true;
 
   # Enable the XFCE Desktop Environment.
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.windowManager.awesome.enable = true;
+  services.xserver.displayManager.startx.enable = true;
+  services.xserver.desktopManager.xterm.enable = false;
 
   # Configure keymap in X11
   services.xserver = {

@@ -17,7 +17,5 @@ in
       enableAutosuggestions = true;
       enableCompletion = true;
     };
-
-    environment.pathsToLink = [ "/share/zsh" ];
   };
 }
