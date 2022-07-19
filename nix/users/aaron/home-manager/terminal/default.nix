@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  home.packages = with pkgs; [
+  config.home.packages = with pkgs; [
     htop
     neovim
     ranger
@@ -9,14 +9,15 @@
 
   config.cyber.alacritty = {
     enable = true;
+    configPath = ../../dotfiles/alacritty/alacritty.yml;
   };
 
-  home.sessionVariables = {
+  config.home.sessionVariables = {
     EDITOR = "${pkgs.neovim}/bin/nvim";
     VISUAL = "${pkgs.neovim}/bin/nvim";
   };
 
-  programs = {
+  config.programs = {
     git = {
       enable = true;
       userName = "Aaron Dodd";

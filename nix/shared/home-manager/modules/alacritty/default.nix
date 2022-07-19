@@ -10,8 +10,8 @@ in
       default = false;
     };
     configPath = mkOption {
-      type = type.str;
-      default = "./alacritty.yml";
+      type = types.path;
+      default = ./alacritty.yml;
     };
   };
 
