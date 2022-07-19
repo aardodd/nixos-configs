@@ -24,12 +24,15 @@
 
   home.packages = with pkgs; [
     chromium
-    firefox
     discord
+    emacs
     feh
+    ffmpeg
+    firefox
     keepassxc
     mpd
     mpv
     ncmpcpp
+    tmux
   ];
 }
