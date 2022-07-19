@@ -20,6 +20,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    grub2-themes.url = github:vinceliuice/grub2-themes;
+    grub2-themes.inputs.nixpkgs.follows = "nixpkgs";
+    grub2-themes-png.url = github:AnotherGroupChat/grub2-themes-png;
+    grub2-themes-png.inputs.nixpkgs.follows = "nixpkgs";
+
     sops-nix.url = "github:Mic92/sops-nix";
   };
 
