@@ -17,9 +17,9 @@ let
       users = if pathExists usersPath then readDirNames usersPath else [ ];
     
       paths =
-        map (user: ../modules/users/${user}) users ++ map (user: usersPath + /${user}) users ++ [
-          ../modules/system/${platform}
-          ../modules/system/${platform}/${arch}
+        map (user: ../users/${user}) users ++ map (user: usersPath + /${user}) users ++ [
+          ../system/${platform}
+          ../system/${platform}/${arch}
           fullHostPath
         ];
     

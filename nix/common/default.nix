@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ lib, pkgs, home-manager, ... }:
 {
   imports = [
     ./home-manager.nix

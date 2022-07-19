@@ -1,2 +1,2 @@
 flake:
-flake.lib.loadModules ./modules;
+flake.lib.loadModules ./modules

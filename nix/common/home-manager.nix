@@ -1,4 +1,4 @@
-{ config, lib, pkgs, flake, hostPath, specialArgs, home-manager, ... }:
+{ config, lib, pkgs, flake, hostPath, specialArgs, ... }:
 
 let
   inherit (flake.lib) readDirNames;
