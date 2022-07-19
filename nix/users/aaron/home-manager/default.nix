@@ -9,14 +9,17 @@
       enable = true;
       configPath = ../dotfiles/dunst/dunstrc;
     };
-    xmonad = {
+    herbstluftwm = {
       enable = true;
-      configPath = ../dotfiles/xmonad/xmonad.hs;
+    };
+    polybar = {
+      enable = true;
+      configPath = ../dotfiles/polybar/config.ini;
     };
     zsh.enable = true;
   };
 
-  home.file.".xinitrc".source = ../dotfiles/xmonad/xinitrc;
+  home.file.".xinitrc".source = ../dotfiles/x11/xinitrc;
 
   home.packages = with pkgs; [
     chromium
