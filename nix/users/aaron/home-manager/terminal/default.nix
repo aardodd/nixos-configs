@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   home.packages = with pkgs; [
     htop
@@ -7,9 +7,9 @@
     ripgrep
   ];
 
-  imports = [
-    ./alacritty.nix
-  ];
+  config.cyber.alacritty = {
+    enable = true;
+  };
 
   home.sessionVariables = {
     EDITOR = "${pkgs.neovim}/bin/nvim";
