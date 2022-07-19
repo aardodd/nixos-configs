@@ -17,6 +17,8 @@
     zsh.enable = true;
   };
 
+  home.file.".xinitrc".source = ../dotfiles/xmonad/xinitrc;
+
   home.packages = with pkgs; [
     chromium
     firefox

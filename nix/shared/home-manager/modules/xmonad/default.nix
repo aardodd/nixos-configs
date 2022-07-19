@@ -13,10 +13,6 @@ in
       type = types.path;
       default = ./xmonad.hs;
     };
-    startPath = mkOption {
-      type = types.path;
-      default = ./xinitrc;
-    };
   };
   
   config = mkIf cfg.enable {
@@ -29,7 +25,5 @@ in
       enableContribAndExtras = true;
       config = cfg.configPath;
     };
-
-    home.file.".xinitrc".source = cfg.startPath;
   };
 }
