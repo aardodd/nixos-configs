@@ -12,6 +12,7 @@
     xmonad = {
       enable = true;
       configPath = ../dotfiles/xmonad/xmonad.hs;
+      startPath = ../dotfiles/xmonad/xinitrc;
     };
     zsh.enable = true;
   };
