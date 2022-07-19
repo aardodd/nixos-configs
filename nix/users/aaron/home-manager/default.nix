@@ -1,11 +1,5 @@
 { config, pkgs, ... }:
 {
-  imports = [
-    ./dunst.nix
-    ./awesomewm.nix
-    ./terminal 
-  ];
-
   home.packages = with pkgs; [
     chromium
     firefox
