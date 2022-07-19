@@ -38,7 +38,7 @@
   }:
   let
     inherit (nixpkgs.lib) recursiveUpdate;
-    lib = import ./lib;
+    lib = import ./nix/utils;
   in
   flake-utils-plus.lib.mkFlake rec {
     inherit self inputs lib;
@@ -46,12 +46,12 @@
     channelsConfig.allowUnfree = true;
 
     hostDefaults.modules = [
-      ./modules/configuration.nix
+      ./nix/common
     ];
 
     hosts = lib.mkHosts {
       inherit self;
-      hostsPath = ./modules/hosts;
+      hostsPath = ./nix/hosts;
     };
   };
 }

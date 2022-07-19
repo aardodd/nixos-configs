@@ -27,13 +27,13 @@ let
       inherit (lib.trivial) pathExists pipe;
 
       srcPaths = [
-        ./users/${name}
-        ./users/${name}/${platform}
-        ./users/${name}/${platform}/${arch}
+        ../users/${name}
+        ../users/${name}/${platform}
+        ../users/${name}/${platform}/${arch}
         (hostPath + /users/${name})
-        ./shared
-        ./system/${platform}
-        ./system/${platform}/${arch}
+        ../shared
+        ../system/${platform}
+        ../system/${platform}/${arch}
       ];
 
       homeManagerPaths = map (path: path + /home-manager) srcPaths;
