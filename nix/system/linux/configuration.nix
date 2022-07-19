@@ -11,5 +11,4 @@
   };
 
   users.defaultUserShell = pkgs.zsh;
-  users.mutableUsers = false;
 }
