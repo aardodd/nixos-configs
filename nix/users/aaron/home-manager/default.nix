@@ -16,6 +16,7 @@
       enable = true;
       configPath = ../dotfiles/polybar/config.ini;
     };
+    rofi.enable = true;
     zsh.enable = true;
   };
 
