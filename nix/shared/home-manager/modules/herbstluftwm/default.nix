@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, modulesPath, ... }:
 with lib;
 let
   cfg = config.cyber.herbstluftwm;
